@@ -1,11 +1,18 @@
 export const resolvers = {
-    Query: {
-        job: () => {
-            return {
-                id: "test-id",
-                title: "The Title",
-                description: "The description."
-            }
-        }
+  Query: {
+    jobs: () => {
+      return [
+        // {
+        //   id: "test-id",
+        //   title: "The Title",
+        //   description: "The description.",
+        // },
+        // {
+        //   id: "test-id",
+        //   title: "The Title",
+        //   description: "The description.",
+        // },
+      ];
     },
+  },
 };
