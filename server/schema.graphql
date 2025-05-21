@@ -4,6 +4,10 @@ type Query{
     company(id: ID!): Company,
 }
 
+type Mutation {
+    createJob(title: String!, description: String): Job
+}
+
 """
 Represents a job ad posted to our board.
 """
