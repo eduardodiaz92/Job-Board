@@ -5,8 +5,8 @@ import { createJob, getJob, getJobs, getJobsByCompany } from "./db/jobs.js";
 export const resolvers = {
   Query: {
     job: async (_root, { id }) => {
-      const job = await getJob(id)
-      if(!job){
+      const job = await getJob(id);
+      if (!job) {
         throw notFoundError("Not job found with id " + id);
       }
       return job;
@@ -21,10 +21,10 @@ export const resolvers = {
     jobs: () => getJobs(),
   },
   Mutation: {
-    createJob: (_root, {title, description}) => {
+    createJob: (_root, { input: { title, description } }) => {
       const companyId = "FjcJCHJALA4i"; // TODO set based on user
-      return createJob({companyId, title, description});
-    }
+      return createJob({ companyId, title, description });
+    },
   },
 
   Company: {
