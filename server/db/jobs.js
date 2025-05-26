@@ -1,7 +1,7 @@
-import { connection } from './connection.js';
-import { generateId } from './ids.js';
+import { connection } from "./connection.js";
+import { generateId } from "./ids.js";
 
-const getJobTable = () => connection.table('job');
+const getJobTable = () => connection.table("job");
 
 export async function getJobs() {
   return await getJobTable().select();
@@ -11,7 +11,7 @@ export async function getJob(id) {
   return await getJobTable().first().where({ id });
 }
 export async function getJobsByCompany(companyId) {
-  return await getJobTable().select().where({companyId});
+  return await getJobTable().select().where({ companyId });
 }
 export async function createJob({ companyId, title, description }) {
   const job = {
@@ -25,10 +25,10 @@ export async function createJob({ companyId, title, description }) {
   return job;
 }
 
-export async function deleteJob(id) {
-  const job = await getJobTable().first().where({ id });
+export async function deleteJob(id, companyId) {
+  const job = await getJobTable().first().where({ id, companyId });
   if (!job) {
-    throw new Error(`Job not found: ${id}`);
+    return null;
   }
   await getJobTable().delete().where({ id });
   return job;
