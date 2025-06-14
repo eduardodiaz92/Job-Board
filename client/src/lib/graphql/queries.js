@@ -76,7 +76,8 @@ export const jobsQuery = gql`
           id
         }
       }
-    }`;
+    }
+    `;
     
 
 

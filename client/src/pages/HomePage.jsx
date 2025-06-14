@@ -5,7 +5,7 @@ import { useJobs } from '../lib/graphql/hooks';
 
 function HomePage() {
   const {jobs, loading, error} = useJobs();
-
+  console.log("[HomePage]", { jobs, loading, error});
    if(loading){
     return <div>Loading...</div>
   }

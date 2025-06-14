@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { formatDate } from '../lib/formatters';
 
+
+
 function JobList({ jobs }) {
   return (
     <ul className="box">
